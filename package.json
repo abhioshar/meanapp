@@ -8,15 +8,20 @@
     "start": "node app"
   },
   "dependencies": {
-  	"express":"*",
-  	"mongoose":"*",
-  	"bcryptjs":"*",
-  	"cors":"*",
-  	"jsonwebtoken":"*",
-  	"body-parser":"*",
-  	"passport":"*",
-  	"passport-jwt":"*"
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
   },
   "author": "Abhishek Sharma",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "js-yaml": "^3.8.3"
+  }
 }
