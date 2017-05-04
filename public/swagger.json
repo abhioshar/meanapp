@@ -11,7 +11,7 @@
   "http"
  ],
  "paths": {
-  "/profile": {
+  "/users/profile": {
    "get": {
     "summary": "Returns the profile of the authenticated user.",
     "description": "Returns the username, email of the user.",
@@ -23,6 +23,38 @@
       "description": "OK"
      }
     }
+   }
+  },
+  "/users/register": {
+   "post": {
+    "summary": "Add user",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "responses": {
+     "200": {
+      "description": "OK"
+     }
+    },
+    "parameters": [
+     {
+      "name": "body",
+      "in": "body",
+      "description": "name",
+      "schema": {
+       "type": "string",
+       "example": {
+        "name": "abhi shar",
+        "email": "a@b.com",
+        "username": "abhi",
+        "password": 123
+       }
+      }
+     }
+    ]
    }
   }
  }
