@@ -30,7 +30,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 // Static path
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'angular-public')));
 
 // Bodyparser for parsing incoming request bodies
 app.use(bodyParser.json());
