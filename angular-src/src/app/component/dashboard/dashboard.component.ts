@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
+import { MdSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,18 +10,21 @@ import { GameService } from '../../services/game.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public gameService: GameService) { }
+  constructor(public gameService: GameService, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
   }
 
-  playerClick(i) {
-    if(this.gameService.turn == 0) {
-      this.gameService.cells[i].setValue("tick");
+  playerClick(cellIndex) {
+    this.gameService.playerClick(cellIndex);
+
+    if(this.gameService.cellSetComplete() == true) {
+      this.restartGame();
+      return;
     } else {
-      this.gameService.cells[i].setValue("cross");
+      this.changePlayer();
+      return;
     }
-    this.changePlayer();
   }
 
   changePlayer() {
@@ -31,7 +35,20 @@ export class DashboardComponent implements OnInit {
   }
 
   computerTurn() {
-    console.log("Computer's turn!");
+    var cellIndex = this.gameService.getComputerCellIndex();
+    this.gameService.playerClick(cellIndex);
+
+    if(this.gameService.cellSetComplete() == true) {
+      this.gameService.restartGame();
+      return;
+    } else {
+      this.changePlayer();
+      return;
+    }
+  }
+
+  restartGame() {
+    this.gameService.restartGame();
   }
 
 }
