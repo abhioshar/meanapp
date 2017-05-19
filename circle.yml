@@ -7,8 +7,8 @@ machine:
 
 dependencies:
   override:
-    - pwd && ls && npm install && pwd && ls
+    - npm install
  
 test:
   override:
-    - pwd && ls && node_modules/.bin/ng test --watch=false && pwd && ls
+    - node_modules/.bin/ng test --watch=false
