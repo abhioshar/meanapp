@@ -86,6 +86,10 @@ export class GameService {
       }
     }
 
+    if(this.cellSetDone(0, 4, 8) || this.cellSetDone(2, 4, 6)) {
+      return true;
+    }
+
     return false;
   }
 
