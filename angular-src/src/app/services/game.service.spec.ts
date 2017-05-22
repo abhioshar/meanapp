@@ -19,7 +19,7 @@ describe('GameService', () => {
     expect(gameService.changePlayer()).toBe(1);
   });
 
-  it('should change the player', () => {
+  it('should ...', () => {
     var mdSnackBar: MdSnackBar;
     let gameService = new GameService(mdSnackBar);
     expect(gameService).toBeTruthy();
