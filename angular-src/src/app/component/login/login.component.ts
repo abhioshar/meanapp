@@ -3,6 +3,10 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+/**
+ * Login Component.
+ * Allows the registered user to log in.
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,6 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * When user clicks the Login button it either logs user in or displays the appropriate message.
+   */
   onLoginSubmit() {
     const user = {
       username: this.username,

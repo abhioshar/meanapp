@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+/**
+ * Profile Component.
+ * Displays the information about the logged in user.
+ */
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

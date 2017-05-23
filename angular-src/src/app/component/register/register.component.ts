@@ -4,6 +4,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+/**
+ * Register Component.
+ * Allows a new user to register.
+ */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -25,6 +29,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Validates and registers the user upon submission of necessary user information.
+   */
   onRegisterSubmit() {
     const user = {
       name: this.name,

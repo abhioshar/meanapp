@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Home Component.
+ * Displays the home page giving information about the application.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

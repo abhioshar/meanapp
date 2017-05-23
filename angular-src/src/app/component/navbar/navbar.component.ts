@@ -3,6 +3,10 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+/**
+ * NavBar Component.
+ * It displays the buttons petaining to the state of user login/logout.
+ */
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -19,6 +23,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Allows the logged in user to log out and redirect the user to login page.
+   */
   onLogoutClick() {
     this.authService.logout();
     this.flashMessage.show('Successfully logged out', {
