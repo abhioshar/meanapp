@@ -370,6 +370,12 @@
     <code>src/app/component/register/register.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Register Component.<br/>Allows a new user to register.</p><br/>
+    </p>
 
 
     <p class="comment">
@@ -431,7 +437,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/component/register/register.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/register/register.component.ts:20</a></div>
                             </td>
                         </tr>
     
@@ -460,7 +466,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/component/register/register.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/component/register/register.component.ts:29</a></div>
                             </td>
                         </tr>
     
@@ -491,12 +497,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/component/register/register.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/component/register/register.component.ts:35</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Validates and registers the user upon submission of necessary user information.</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -528,7 +535,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/component/register/register.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/component/register/register.component.ts:18</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -548,7 +555,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/component/register/register.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/component/register/register.component.ts:17</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -568,7 +575,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/component/register/register.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/register/register.component.ts:20</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -588,7 +595,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/component/register/register.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/component/register/register.component.ts:19</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -604,6 +611,10 @@ import { FlashMessagesService } from &#x27;angular2-flash-messages&#x27;;
 import { AuthService } from &#x27;../../services/auth.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
+/**
+ * Register Component.
+ * Allows a new user to register.
+ */
 @Component({
   selector: &#x27;app-register&#x27;,
   templateUrl: &#x27;./register.component.html&#x27;,
@@ -625,6 +636,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Validates and registers the user upon submission of necessary user information.
+   */
   onRegisterSubmit() {
     const user &#x3D; {
       name: this.name,

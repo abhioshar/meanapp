@@ -370,6 +370,12 @@
     <code>src/app/component/login/login.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Login Component.<br/>Allows the registered user to log in.</p><br/>
+    </p>
 
 
     <p class="comment">
@@ -431,7 +437,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/component/login/login.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/component/login/login.component.ts:17</a></div>
                             </td>
                         </tr>
     
@@ -460,7 +466,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/component/login/login.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/component/login/login.component.ts:25</a></div>
                             </td>
                         </tr>
     
@@ -491,12 +497,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/component/login/login.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/component/login/login.component.ts:31</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>When user clicks the Login button it either logs user in or displays the appropriate message.</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -528,7 +535,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/component/login/login.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/component/login/login.component.ts:17</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -548,7 +555,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/component/login/login.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/component/login/login.component.ts:16</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -563,6 +570,10 @@ import { AuthService } from &#x27;../../services/auth.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { FlashMessagesService } from &#x27;angular2-flash-messages&#x27;;
 
+/**
+ * Login Component.
+ * Allows the registered user to log in.
+ */
 @Component({
   selector: &#x27;app-login&#x27;,
   templateUrl: &#x27;./login.component.html&#x27;,
@@ -581,6 +592,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * When user clicks the Login button it either logs user in or displays the appropriate message.
+   */
   onLoginSubmit() {
     const user &#x3D; {
       username: this.username,

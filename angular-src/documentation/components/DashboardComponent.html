@@ -370,6 +370,12 @@
     <code>src/app/component/dashboard/dashboard.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Dashboard Component.<br/>It features the tic-tac-toe game.</p><br/>
+    </p>
 
 
     <p class="comment">
@@ -439,10 +445,38 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:15</a></div>
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>It intitializes GameSErvice and MdSnackBar classes</p><br/></div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>gameService</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>GameService</p>
+    
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>snackBar</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>MdSnackBar</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -468,7 +502,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:24</a></div>
                             </td>
                         </tr>
     
@@ -499,17 +533,34 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:32</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>If the player clicks on the cell with cellIndex.<br/>If game over restarts the game, otherwise change the player.</p><br/></div>
     
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>cellIndex</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -530,12 +581,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:47</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Changes the current player.</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -561,12 +613,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:57</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>This encompasses the logic of the strategy of computer bot.</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -592,12 +645,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:73</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Restarts the game.</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -653,6 +707,10 @@
 import { GameService } from &#x27;../../services/game.service&#x27;;
 import { MdSnackBar } from &#x27;@angular/material&#x27;;
 
+/**
+ * Dashboard Component.
+ * It features the tic-tac-toe game.
+ */
 @Component({
   selector: &#x27;app-dashboard&#x27;,
   templateUrl: &#x27;./dashboard.component.html&#x27;,
@@ -661,11 +719,21 @@ import { MdSnackBar } from &#x27;@angular/material&#x27;;
 })
 export class DashboardComponent implements OnInit {
 
+  /**
+   * It intitializes GameSErvice and MdSnackBar classes
+   * @param gameService GameService
+   * @param snackBar MdSnackBar
+   */
   constructor(public gameService: GameService, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
   }
 
+  /**
+   * If the player clicks on the cell with cellIndex.
+   * If game over restarts the game, otherwise change the player.
+   * @param cellIndex 
+   */
   playerClick(cellIndex) {
     this.gameService.playerClick(cellIndex);
 
@@ -678,6 +746,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * Changes the current player.
+   */
   changePlayer() {
     var player &#x3D; this.gameService.changePlayer();
     if(player &#x3D;&#x3D; 1) {
@@ -685,6 +756,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * This encompasses the logic of the strategy of computer bot.
+   */
   computerTurn() {
     var cellIndex &#x3D; this.gameService.getComputerCellIndex();
     this.gameService.playerClick(cellIndex);
@@ -698,6 +772,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * Restarts the game.
+   */
   restartGame() {
     this.gameService.restartGame();
   }
