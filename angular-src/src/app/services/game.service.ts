@@ -10,7 +10,7 @@ export class GameService {
   turn: number = 0;
   
   cells = [];
-  freeCells = 9;
+  freeCells: number = 9;
 
   constructor(public snackBar: MdSnackBar) { 
     this.initializeCells();
@@ -19,6 +19,7 @@ export class GameService {
 
   initializeCells() {
     this.cells = [];
+    this.freeCells = 9;
     for(var i = 1; i <= 9; ++i) {
       var cell = new Cell();
       cell.empty = true;
@@ -43,17 +44,31 @@ export class GameService {
   }
 
   restartGame() {
+    console.log("gservice game restarted");
+    this.turn = 0;
     this.initializeCells();
     this.intializePlayers();
   }
 
   playerClick(cellIndex) {
+    if(this.cells[cellIndex].empty == false) {
+      return;
+    }
+
+    this.cells[cellIndex].empty = false;
+    this.freeCells--;
+
     if(this.turn == 0) {
       this.cells[cellIndex].setValue("tick");
     } else {
       this.cells[cellIndex].setValue("cross");
     }
-    this.cells[cellIndex].empty = false;
+
+    if(this.cellSetComplete() == true) {
+      return true;
+    }
+
+    return false;
   }
 
   changePlayer() {
@@ -63,18 +78,25 @@ export class GameService {
 
   cellSetComplete() {
     if(this.cellSetCompleteHelper() == true) {
-      this.players[this.turn] += 1;
+      //this.players[this.turn] += 1;
       this.snackBar.open("Winner", "Player " + (this.turn == 1 ? "computer" : "user"), {
         duration: 5000,
       });
+      this.restartGame();
       return true;
-    } else {
-      return false;
+    } else if(this.areCellsDone() == true) {
+        this.snackBar.open("Game", " Drawn!", {
+          duration: 5000,
+        });
+        this.restartGame();
+        return true;
+      } else {
+        return false;
     }
   }
 
   cellSetCompleteHelper() {
-    for(var i = 0; i < 3; i += 3) {
+    for(var i = 0; i < 7; i += 3) {
       if(this.cellSetDone(i, i+1, i+2)) {
         return true;
       }
@@ -97,7 +119,7 @@ export class GameService {
     var cell1 = this.cells[ind1];
     var cell2 = this.cells[ind2];
     var cell3 = this.cells[ind3];
-    console.log(ind1 + ' ' + cell1.empty + '. ' +  ind2 + cell2.empty + '. ' + ind3 + ' ' + cell3.empty);
+    // console.log(ind1 + ' ' + cell1.empty + '. ' +  ind2 + cell2.empty + '. ' + ind3 + ' ' + cell3.empty);
     if(cell1.empty == false && cell2.empty == false && cell3.empty == false) {
       if((cell1.value == cell2.value && cell2.value == cell3.value)) {
         return true;
@@ -110,11 +132,24 @@ export class GameService {
   }
 
   getComputerCellIndex() {
+    if(this.freeCells <= 2) {
+      for(var i = 0; i < 9; ++i) {
+        if(this.cells[i].empty == true) {
+          return i;
+        } else {
+          this.restartGame();
+        }
+      }
+    }
     var cellIndex = Math.floor(Math.random() * 9);
     while(this.cells[cellIndex].empty == false) {
       cellIndex = Math.floor(Math.random() * 9);
     }
     return cellIndex;
+  }
+
+  areCellsDone() {
+    return (this.freeCells == 0 ? true : false);
   }
 }
 

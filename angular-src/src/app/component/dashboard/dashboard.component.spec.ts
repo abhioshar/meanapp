@@ -25,6 +25,9 @@ import { RegisterComponent } from '../register/register.component';
 import { AuthService } from '../../services/auth.service';
 import {ValidateService} from '../../services/validate.service';
 
+import { GameService } from '../../services/game.service';
+import { MdSnackBar } from '@angular/material';
+
 import { AuthGuard } from '../../guards/auth.guard';
 
 import {APP_BASE_HREF} from '@angular/common';
@@ -62,7 +65,7 @@ describe('DashboardComponent', () => {
         BrowserAnimationsModule,
         MaterialModule
       ],
-      providers: [ValidateService, AuthService, AuthGuard, {provide: APP_BASE_HREF, useValue : '/' }]
+      providers: [GameService, ValidateService, AuthService, AuthGuard, {provide: APP_BASE_HREF, useValue : '/' }]
     })
     .compileComponents();
   }));
@@ -76,4 +79,13 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+/*  it('should call changePlayer function', () => {
+    var mdSnackBar: MdSnackBar;
+    var gameService: GameService;
+    let dashboardComponent = new DashboardComponent(gameService, mdSnackBar);
+    // gameService.turn = 0;
+    expect(dashboardComponent.changePlayer()).toBeTruthy();
+  });*/
+
 });

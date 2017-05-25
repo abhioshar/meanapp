@@ -30,15 +30,15 @@ export class DashboardComponent implements OnInit {
    * @param cellIndex 
    */
   playerClick(cellIndex) {
-    this.gameService.playerClick(cellIndex);
-
-    if(this.gameService.cellSetComplete() == true) {
+    if(this.gameService.areCellsDone() == true) {
       this.restartGame();
+      return;
+    }
+    if(this.gameService.playerClick(cellIndex) == true) {
       return;
     } else {
       this.changePlayer();
-      return;
-    }
+    }  
   }
 
   /**
@@ -46,6 +46,10 @@ export class DashboardComponent implements OnInit {
    */
   changePlayer() {
     var player = this.gameService.changePlayer();
+    // if(this.gameService.areCellsDone() == true) {
+    //   this.gameService.restartGame();
+    //   return;
+    // }
     if(player == 1) {
       this.computerTurn();
     }
@@ -55,22 +59,22 @@ export class DashboardComponent implements OnInit {
    * This encompasses the logic of the strategy of computer bot.
    */
   computerTurn() {
-    var cellIndex = this.gameService.getComputerCellIndex();
-    this.gameService.playerClick(cellIndex);
 
-    if(this.gameService.cellSetComplete() == true) {
+    if(this.gameService.areCellsDone() == true) {
       this.gameService.restartGame();
       return;
-    } else {
-      this.changePlayer();
-      return;
     }
+
+    var cellIndex = this.gameService.getComputerCellIndex();
+    
+    this.playerClick(cellIndex);
   }
 
   /**
    * Restarts the game.
    */
   restartGame() {
+    console.log("game restarted");
     this.gameService.restartGame();
   }
 
