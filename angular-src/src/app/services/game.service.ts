@@ -124,6 +124,7 @@ export class GameService {
     if(this.turn == 1) {
       this.computerMove();
     }
+    return this.turn;
   }
 
   computerMove() {

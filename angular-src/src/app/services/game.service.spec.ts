@@ -15,8 +15,8 @@ describe('GameService', () => {
   it('should change the player', () => {
     var mdSnackBar: MdSnackBar;
     let gameService = new GameService(mdSnackBar);
-    gameService.turn = 0;
-    expect(gameService.changePlayer()).toBe(1);
+    gameService.turn = 1;
+    expect(gameService.changePlayer()).toBe(0);
   });
 
   it('should ...', () => {
