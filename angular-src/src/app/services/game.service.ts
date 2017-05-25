@@ -51,6 +51,9 @@ export class GameService {
   }
 
   playerClick(cellIndex) {
+
+    //console.log(this.cells);
+
     if(this.cells[cellIndex].empty == false) {
       return;
     }
@@ -65,37 +68,25 @@ export class GameService {
     }
 
     if(this.cellSetComplete() == true) {
-      return true;
-    }
-
-    return false;
-  }
-
-  changePlayer() {
-    this.turn = 1 - this.turn;
-    return this.turn;
-  }
-
-  cellSetComplete() {
-    if(this.cellSetCompleteHelper() == true) {
-      //this.players[this.turn] += 1;
       this.snackBar.open("Winner", "Player " + (this.turn == 1 ? "computer" : "user"), {
         duration: 5000,
       });
       this.restartGame();
-      return true;
-    } else if(this.areCellsDone() == true) {
-        this.snackBar.open("Game", " Drawn!", {
-          duration: 5000,
-        });
-        this.restartGame();
-        return true;
-      } else {
-        return false;
+      return;
     }
+
+    if(this.areCellsDone() == true) {
+      this.snackBar.open("Game", " Drawn!", {
+        duration: 5000,
+      });
+      this.restartGame();
+      return;
+    }
+
+    this.changePlayer();
   }
 
-  cellSetCompleteHelper() {
+  cellSetComplete() {
     for(var i = 0; i < 7; i += 3) {
       if(this.cellSetDone(i, i+1, i+2)) {
         return true;
@@ -123,12 +114,21 @@ export class GameService {
     if(cell1.empty == false && cell2.empty == false && cell3.empty == false) {
       if((cell1.value == cell2.value && cell2.value == cell3.value)) {
         return true;
-      } else {
-        return false;
       }
-    } else {
-      return false;
     }
+    return false;
+  }
+
+  changePlayer() {
+    this.turn = 1 - this.turn;
+    if(this.turn == 1) {
+      this.computerMove();
+    }
+  }
+
+  computerMove() {
+    var cellIndex = this.getComputerCellIndex();
+    this.playerClick(cellIndex);
   }
 
   getComputerCellIndex() {
@@ -136,8 +136,6 @@ export class GameService {
       for(var i = 0; i < 9; ++i) {
         if(this.cells[i].empty == true) {
           return i;
-        } else {
-          this.restartGame();
         }
       }
     }

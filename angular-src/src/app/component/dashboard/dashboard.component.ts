@@ -30,52 +30,7 @@ export class DashboardComponent implements OnInit {
    * @param cellIndex 
    */
   playerClick(cellIndex) {
-    if(this.gameService.areCellsDone() == true) {
-      this.restartGame();
-      return;
-    }
-    if(this.gameService.playerClick(cellIndex) == true) {
-      return;
-    } else {
-      this.changePlayer();
-    }  
+    console.log(this.gameService.cells);
+    this.gameService.playerClick(cellIndex);
   }
-
-  /**
-   * Changes the current player.
-   */
-  changePlayer() {
-    var player = this.gameService.changePlayer();
-    // if(this.gameService.areCellsDone() == true) {
-    //   this.gameService.restartGame();
-    //   return;
-    // }
-    if(player == 1) {
-      this.computerTurn();
-    }
-  }
-
-  /**
-   * This encompasses the logic of the strategy of computer bot.
-   */
-  computerTurn() {
-
-    if(this.gameService.areCellsDone() == true) {
-      this.gameService.restartGame();
-      return;
-    }
-
-    var cellIndex = this.gameService.getComputerCellIndex();
-    
-    this.playerClick(cellIndex);
-  }
-
-  /**
-   * Restarts the game.
-   */
-  restartGame() {
-    console.log("game restarted");
-    this.gameService.restartGame();
-  }
-
 }
