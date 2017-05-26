@@ -19,9 +19,11 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+        "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "google_material_icons.css"
       ],
-      "scripts": [],
+      "scripts": ["../src/jquery.min.js", "../node_modules/bootstrap/dist/js/bootstrap.js"],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

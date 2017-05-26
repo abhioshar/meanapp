@@ -13,7 +13,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.1.2",
-    "angular-cli": "1.0.0-beta.28.3",
     "@angular/common": "^4.1.2",
     "@angular/compiler": "^4.1.2",
     "@angular/compiler-cli": "^4.1.2",
@@ -25,13 +24,15 @@
     "@angular/platform-browser-dynamic": "^4.1.2",
     "@angular/platform-server": "^4.1.2",
     "@angular/router": "^4.1.2",
+    "angular-cli": "1.0.0-beta.28.3",
     "angular2-flash-messages": "^1.0.8",
     "angular2-jwt": "^0.2.3",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "typescript": "^2.3.2",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.28.3",
