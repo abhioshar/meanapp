@@ -29,6 +29,9 @@ const port = process.env.PORT || 8080;
 // For allowing cross domain requests
 app.use(cors());
 
+var compress = require('compression');
+app.use(compress());
+
 // Static path
 app.use(express.static(path.join(__dirname, 'angular-public')));
 
