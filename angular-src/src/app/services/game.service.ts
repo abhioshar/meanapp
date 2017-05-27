@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { Cell } from '../helper/cell';
 import { Player } from '../helper/player';
 import { MdSnackBar } from '@angular/material';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class GameService {
-
+  user: any;
   players = [];
   turn: number = 0;
   
   cells = [];
   freeCells: number = 9;
 
-  constructor(public snackBar: MdSnackBar) { 
+  constructor(public snackBar: MdSnackBar, public authService: AuthService) { 
     this.initializeCells();
     this.intializePlayers();
+    this.authService.getProfile().subscribe(data => this.user = data.user); 
   }
 
   initializeCells() {
@@ -51,9 +53,6 @@ export class GameService {
   }
 
   playerClick(cellIndex) {
-
-    //console.log(this.cells);
-
     if(this.cells[cellIndex].empty == false) {
       return;
     }
@@ -68,7 +67,7 @@ export class GameService {
     }
 
     if(this.cellSetComplete() == true) {
-      this.snackBar.open("Winner", "Player " + (this.turn == 1 ? "computer" : "user"), {
+      this.snackBar.open("Winner is", this.turn == 1 ? "computer" : this.user.username, {
         duration: 5000,
       });
       this.restartGame();
@@ -76,7 +75,7 @@ export class GameService {
     }
 
     if(this.areCellsDone() == true) {
-      this.snackBar.open("Game", " Drawn!", {
+      this.snackBar.open("Game", "Drawn!", {
         duration: 5000,
       });
       this.restartGame();
@@ -110,7 +109,7 @@ export class GameService {
     var cell1 = this.cells[ind1];
     var cell2 = this.cells[ind2];
     var cell3 = this.cells[ind3];
-    // console.log(ind1 + ' ' + cell1.empty + '. ' +  ind2 + cell2.empty + '. ' + ind3 + ' ' + cell3.empty);
+    
     if(cell1.empty == false && cell2.empty == false && cell3.empty == false) {
       if((cell1.value == cell2.value && cell2.value == cell3.value)) {
         return true;
