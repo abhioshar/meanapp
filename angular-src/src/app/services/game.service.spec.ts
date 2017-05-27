@@ -13,7 +13,7 @@ describe('GameService', () => {
     });
   });
 
-/*  it('should change the player', () => {
+  it('should change the player', () => {
     var mdSnackBar: MdSnackBar;
     var authService: AuthService;
     let gameService = new GameService(mdSnackBar, authService);
@@ -26,5 +26,5 @@ describe('GameService', () => {
     var authService: AuthService;
     let gameService = new GameService(mdSnackBar, authService);
     expect(gameService).toBeTruthy();
-  });*/
+  });
 });

@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class GameService {
-  user: any;
+  user: any = null;
   players = [];
   turn: number = 0;
   
@@ -16,7 +16,11 @@ export class GameService {
   constructor(public snackBar: MdSnackBar, public authService: AuthService) { 
     this.initializeCells();
     this.intializePlayers();
-    this.authService.getProfile().subscribe(data => this.user = data.user); 
+  }
+
+  getUser() {
+    if(this.user != null) return;
+    this.authService.getProfile().subscribe(data => this.user = data.user);
   }
 
   initializeCells() {
@@ -53,6 +57,7 @@ export class GameService {
   }
 
   playerClick(cellIndex) {
+    this.getUser();
     if(this.cells[cellIndex].empty == false) {
       return;
     }
