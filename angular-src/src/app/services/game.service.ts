@@ -9,6 +9,7 @@ export class GameService {
   user: any = null;
   players = [];
   turn: number = 0;
+  scores = [];
   
   cells = [];
   freeCells: number = 9;
@@ -16,6 +17,9 @@ export class GameService {
   constructor(public snackBar: MdSnackBar, public authService: AuthService) { 
     this.initializeCells();
     this.intializePlayers();
+    this.scores[0] = 0;
+    this.scores[1] = 0;
+    this.scores[2] = 0;
   }
 
   getUser() {
@@ -70,11 +74,12 @@ export class GameService {
     } else {
       this.cells[cellIndex].setValue("cross");
     }
-
     if(this.cellSetComplete() == true) {
       this.snackBar.open("Winner is", this.turn == 1 ? "computer" : this.user.username, {
         duration: 5000,
       });
+      this.scores[this.turn]++;
+      console.log("Score inscread of " + this.turn + " " + this.players[this.turn].score);
       this.restartGame();
       return;
     }
@@ -83,6 +88,7 @@ export class GameService {
       this.snackBar.open("Game", "Drawn!", {
         duration: 5000,
       });
+      this.scores[2]++;
       this.restartGame();
       return;
     }
