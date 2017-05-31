@@ -7,20 +7,20 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h2>Score:</h2>
+        <h2 class="score">Score:</h2>
         <table class="table table-bordered">
             <tbody>
                 <tr>
                     <td>You:</td>
-                    <td>{{this.gameService.scores[0]}}</td>
+                    <td [ngClass]="{'winning': isUserWinning()}">{{this.gameService.scores[0]}}</td>
                 </tr>
                 <tr>
                     <td>Computer:</td>
-                    <td>{{this.gameService.scores[1]}}</td>
+                    <td [ngClass]="{'winning': isComputerWinning()}">{{this.gameService.scores[1]}}</td>
                 </tr>
                 <tr>
                     <td>Draws:</td>
-                    <td>{{this.gameService.scores[2]}}</td>
+                    <td [ngClass]="{'winning': isDrawn()}">{{this.gameService.scores[2]}}</td>
                 </tr>
             </tbody>
         </table>

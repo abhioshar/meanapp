@@ -33,4 +33,25 @@ export class DashboardComponent implements OnInit {
     console.log(this.gameService.cells);
     this.gameService.playerClick(cellIndex);
   }
+
+  isUserWinning() {
+    if(this.gameService.scores[0] >= this.gameService.scores[1] && this.gameService.scores[0] >= this.gameService.scores[2]) {
+      return true;
+    }
+    return false;
+  }
+
+  isComputerWinning() {
+    if(this.gameService.scores[1] >= this.gameService.scores[2] && this.gameService.scores[1] >= this.gameService.scores[0]) {
+      return true;
+    }
+    return false;
+  }
+
+  isDrawn() {
+    if(this.gameService.scores[2] >= this.gameService.scores[1] && this.gameService.scores[2] >= this.gameService.scores[0]) {
+      return true;
+    }
+    return false;
+  }
 }
