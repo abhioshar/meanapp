@@ -1,6 +1,7 @@
 .game-side {
     margin-top: 5em;
-    width: 20em;
+    width: 15em;
+    height: 15em;
     // background: #360033;  /* fallback for old browsers */
     // background: -webkit-linear-gradient(to right, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
     // background: linear-gradient(to right, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -23,16 +24,24 @@
 
 .col-md-4 {
     margin-top: 5em;
-    width: 20em;
-    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-    background: linear-gradient(to right, #25c481, #25b7c4);
-    color: white;
+    width: 15em;
+    height: 15em;
+    //background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    //background: linear-gradient(to right, #25c481, #25b7c4);
+    color: black;
 }
 
 .winning {
+    color: white;
     background: #fe8c00;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.winningScore {
+    color: white;
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
 }
 
 .game-grid {
